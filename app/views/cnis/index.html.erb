@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cnis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>NOM</th>
+      <th>Prénom</th>
+      <th>Numéro Recepissé</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cnis.each do |cni| %>
+      <tr>
+        <td><%= cni.name %></td>
+        <td><%= cni.secondName %></td>
+        <td><%= cni.numeroRecepisse %></td>
+        <td><%= link_to 'Show', cni %></td>
+        <td><%= link_to 'Edit', edit_cni_path(cni) %></td>
+        <td><%= link_to 'Destroy', cni, method: :delete, data: { confirm: 'Etes-vous sur?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cni', new_cni_path %>

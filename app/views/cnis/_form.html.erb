@@ -1,0 +1,32 @@
+<%= form_with(model: cni, local: true) do |form| %>
+  <% if cni.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cni.errors.count, "error") %> prohibited this cni from being saved:</h2>
+
+      <ul>
+      <% cni.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Nom" %>
+    <%= form.text_field :name, id: :cni_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Prénom" %>
+    <%= form.text_field :secondName, id: :cni_secondName %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Numéro recepissé" %>
+    <%= form.text_field :numeroRecepisse, id: :cni_numeroRecepisse %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cni.name %>
+</p>
+
+<p>
+  <strong>Secondname:</strong>
+  <%= @cni.secondName %>
+</p>
+
+<p>
+  <strong>Numerorecepisse:</strong>
+  <%= @cni.numeroRecepisse %>
+</p>
+
+<%= link_to 'Edit', edit_cni_path(@cni) %> |
+<%= link_to 'Back', cnis_path %>
