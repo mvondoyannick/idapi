@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223184518) do
+ActiveRecord::Schema.define(version: 20180224015509) do
 
   create_table "cnis", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "secondName"
     t.string "numeroRecepisse"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "browser"
+    t.string "address"
+    t.string "controller"
+    t.string "action"
+    t.string "requestAt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

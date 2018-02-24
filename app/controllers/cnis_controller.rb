@@ -1,6 +1,7 @@
 class CnisController < ApplicationController
   before_action :set_cni, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, only: [:new, :destroy]
+  before_action :add_log
   protect_from_forgery with: :null_session
 
   # GET /cnis
@@ -80,4 +81,17 @@ class CnisController < ApplicationController
         user == "admin" && password == "admin"
       end
     end
+
+    def add_log
+      #create new log
+      log = Log.new
+      # read data from request
+      log.browser = request.env['HTTP_USER_AGENT']
+      log.address = request.env['REMOTE_ADDR']
+      log.controller = controller_name
+      log.action = action_name
+      log.requestAt = Time.now
+      # Save the log
+      log.save
+      end
 end
